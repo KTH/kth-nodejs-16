@@ -9,6 +9,7 @@ RUN apk --no-cache add yarn git bash && \
     # Install missing deps
     npm install --global merge-descriptors
     
+RUN echo "IMAGE INFORMATION" > KTH_OS
 RUN echo "Alpine version: `cat /etc/alpine-release `" >> KTH_OS
 RUN echo "Build date: `date`" >> KTH_OS
 

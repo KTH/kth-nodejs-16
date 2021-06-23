@@ -6,7 +6,6 @@ passed() { printf "\033[0;32m • $@\033[0;0m\n"; }
 
 FAILED=""
 
-cat /KTH_NODEJS
 #
 # /KTH_NODEJS should contain a pattern or show infor
 #
