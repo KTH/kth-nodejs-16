@@ -51,7 +51,7 @@ expectToContain "/KTH_NODEJS" "merge-descriptors@" "Image should have global pac
 
 # Result
 if [[ "$FAILED" != *"true"* ]]; then
-    info "All end-to-end tests passed."
+    info "🎉 All unit tests passed."
     exit 0
 else
     echo ""
