@@ -35,9 +35,7 @@ expectFileToContain() {
 }
 
 #
-# /KTH_NODEJS should contain a pattern or show infor
-#
-# Usage: expectCommandToContain "Build date" "No build date pressent in /KTH_NODEJS"
+# Usage: expectCommandToContain "node --version" "16" "Node should be version 16"
 #
 expectCommandToContain() {
     CMD="$1"
@@ -63,7 +61,6 @@ expectCommandToContain() {
 
 }
 
-
 # ---------------- Tests ----------------
 
 echo ""
@@ -79,7 +76,7 @@ echo ""
 echo "Node JS"
 expectFileToContain "/KTH_NODEJS" "Build date:" "/KTH_NODEJS should contain the date when the images was built."
 expectFileToContain "/KTH_NODEJS" "Node: v16" "Image should have Node v16* installed."
-expectFileToContain "/KTH_NODEJS" "NPM: 7" "Image should have 'npm 7.*.*' installed."
+expectFileToContain "/KTH_NODEJS" 'NPM: 8.' "Image should have 'npm 8.*.*' installed."
 expectFileToContain "/KTH_NODEJS" "Yarn: 1." "Image should have 'Yarn 1.*.*' installed."
 expectFileToContain "/KTH_NODEJS" "merge-descriptors@" "Image should have global package 'merge-descriptors' installed."
 
