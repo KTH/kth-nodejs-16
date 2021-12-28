@@ -5,4 +5,4 @@ services:
     image: $LOCAL_IMAGE_ID
     tty: true
 
-    command: ["bash", "-c", "bash --version"]
+    command: ["bash", "-c", "node --version"]
