@@ -4,7 +4,13 @@
 
 *Npm* and *Yarn* versions are always the latest availible at build time.
 
-Each built image has information about its version in a file called `KTH_NODEJS`. To look into this files content run: `docker run kthse/kth-nodejs:16.0.0 cat /KTH_NODEJS`.
+Each built image has information about its version in a file called `KTH_NODEJS`. To look into this files content run:
+
+```bash
+az login
+az acr login -n kthregistry
+docker run kthregistry.azurecr.io/kth-nodejs-16 cat /KTH_NODEJS
+```
 
 ```bash
 IMAGE INFORMATION
@@ -20,16 +26,18 @@ Yarn: 1.22.5
 `-- npm@7.15.1
 ```
 
-## What tag (version) should I use?
+## Tags
 
-We recommended that you use the SemVer without hash (kth-nodejs:*16.0.0*). Unlike normal images SemVer numbers are reused when we rebuild the image each night to get the latest security patches. Very seldon if ever we update the minor version (16.X.0). If you wish to stick to a specific commit you can also look in the [Docker Hub for a specifc version](https://hub.docker.com/r/kthse/kth-nodejs/tags/) where you whould see something like `16.0.0_7cf8e98`, where *7cf8e98* is the the Git commit hash. Then you will be sure exacly what it is you are useing. But please Note, if you use a specific tag like 16.0.0_7cf8e98 you will only get nightly security upgrades aslong as the Git commit is also the Git HEAD. After that the image will slowly rotten.
+By default there will always be 2 tags to every build.
+The first tag contains date of the build, buildversion and 4 first chars from that builds commit sha.
+the second is "latest" there will always only one latest version, replacing the previous version.
+This will provide a linear insight in the build history.
 
 ## What operating system does this image use?
 
-The image also contains build information from when the operating system was built. This information is located in the root in a file called `KTH_OS` run: `docker run kthse/kth-nodejs:8.11.0 cat /KTH_OS` to view your image.
+The image also contains build information from when the operating system was built. This information is located in the root in a file called `KTH_OS` run: `docker run kthregistry.azurecr.io/kth-nodejs-16 cat /KTH_NODEJS`. to view your image, and make sure you are logged in to the ACR as mentioned above.
 
 ```bash
 Alpine version: 3.13.5
 Build date: Sun Jun 20 23:18:18 UTC 2021
 ```
-
