@@ -41,3 +41,7 @@ The image also contains build information from when the operating system was bui
 Alpine version: 3.13.5
 Build date: Sun Jun 20 23:18:18 UTC 2021
 ```
+
+## Automated builds
+
+There is a schedule for nightly build. New builds are scheduled for 5 times a week. Builds are also automated to trigger when the code in main branch is updated.
